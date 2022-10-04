@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * 현금으로 돈을 받고 25000원을 거슬러 주어야 합니다
  * 5만원 짜리는 몇장, 만원짜리는 몇장, 5천원짜리는 몇장을 거슬러주어야 할까요?
@@ -14,7 +16,9 @@ class CurrencyCount2 {
         int currency100 = 100;
 
         //raw 익히지 않은
-        int refund = 25400;
+        Scanner sc = new Scanner(System.in);
+        System.out.println("화폐의 액수를 입력해주세요 : ");
+        int refund = sc.nextInt();
 
         /**
          * 25,000원을 각 화폐 단위로 나누었을 때 몫과 나머지를 출력하는 코드를 작성해주세요
