@@ -11,22 +11,33 @@ class CurrencyCount2 {
         int currency5000 = 5000;
         int currency1000 = 1000;
         int currency500 = 500;
+        int currency100 = 100;
 
         //raw 익히지 않은
-        int refund = 25000;
+        int refund = 25400;
 
         /**
          * 25,000원을 각 화폐 단위로 나누었을 때 몫과 나머지를 출력하는 코드를 작성해주세요
          * 각 화폐 단위는 위와 같이 각각 변수로 선언해주세요.
          */
 
-        System.out.printf("5만원권 %d장\n", refund / currency50000);
         //25,000원을 50,000원으로 나누었을 때 몫, 나머지
+        System.out.printf("5만원권 %d장\n", refund / currency50000);
+        //25,000원을 10,000원으로 나누었을 때 몫, 나머지
         System.out.printf("1만원권 %d장, 나머지 : %d\n", refund / currency10000, refund % currency10000);
-        System.out.printf("5천원권 %d장, 나머지 : %d\n", refund / currency5000, refund % currency5000);
-        System.out.printf("1천원권 %d장, 나머지 : %d\n", refund / currency1000, refund % currency1000);
-        System.out.printf("5백원 %d개, 나머지 : %d\n", refund / currency500, refund % currency500);
+        //5,000원 권은 한장만 나오게 하고 싶다. 왜냐하면 20,000원은 만원짜리 두개로 처리했기 때문이다.
+        //refund = refund - (currency10000 * 2);
+        refund = refund % 10000;
 
+        //refund는 25,000원을 1원으로 나눈 나머지로 값을 업데이트 한다.
+        refund = refund % 5000;
+        System.out.printf("5천원권 %d장, 나머지 : %d\n", refund / currency5000, refund % currency5000);
+        refund = refund % 1000;
+        System.out.printf("1천원권 %d장, 나머지 : %d\n", refund / currency1000, refund % 1000);
+        refund = refund % 500;
+        System.out.printf("5백원 %d개, 나머지 : %d\n", refund / currency500, refund % 500);
+        refund = refund % 100;
+        System.out.printf("1백원 %d개, 나머지 : %d\n", refund / currency100, refund % 100);
     }
 }
 
